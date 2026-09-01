@@ -1,0 +1,1 @@
+export default function AdminReportsPage(){return <main className="container"><header className="hero"><h1>举报审核</h1><p>V1.0 管理入口。请通过受保护 API 使用 ADMIN_SECRET 审核。</p></header><section className="panel section"><p>管理 API：<code>/api/v1/admin/reports</code></p><p>生产环境建议通过受限网络、平台密钥或单独管理身份访问，不向普通用户开放此页面。</p></section></main>}

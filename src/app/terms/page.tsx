@@ -1,0 +1,1 @@
+export default function Terms(){return <main className="container"><header className="hero"><h1>使用条款</h1></header><article className="panel section"><p>本平台用于科研物资、实验需求和合作机会的临时信息对接。用户应确保发布内容合法、真实、适当，并自行判断交易、样品、知识产权、生物安全和合规风险。</p><p>平台不保证任何供给或需求最终成交，也不代表用户对其他用户作出的事实、质量、资质或承诺进行认证。</p><p>发现违法、有害、侵犯隐私或明显误导内容，请通过举报功能反馈。平台可依据风险控制和适用法律采取隐藏、删除、限制访问等措施。</p></article></main>}

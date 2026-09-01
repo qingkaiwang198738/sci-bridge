@@ -1,0 +1,6 @@
+import { createAdminClient } from "@/src/lib/supabase/admin";
+export async function insertMessage(input:Record<string,unknown>){const {data,error}=await createAdminClient().from("messages").insert(input).select("*").single();if(error)throw error;return data;}
+export async function findPublicMessages(limit=50){const {data,error}=await createAdminClient().from("messages").select("id,category,supply_type,item_name,content,status,expires_at,resolved_at,created_at").eq("status","published").gt("expires_at",new Date().toISOString()).order("created_at",{ascending:false}).limit(limit);if(error)throw error;return data??[];}
+export async function findMessageById(id:string){const {data,error}=await createAdminClient().from("messages").select("*").eq("id",id).maybeSingle();if(error)throw error;return data;}
+export async function markResolved(id:string){const {data,error}=await createAdminClient().from("messages").update({status:"resolved",resolved_at:new Date().toISOString()}).eq("id",id).eq("status","published").select("*").single();if(error)throw error;return data;}
+export async function republishMessage(messageId:string,ownerSecretHash:string,newSecretHash:string){const {data,error}=await createAdminClient().rpc("republish_message",{p_message_id:messageId,p_owner_secret_hash:ownerSecretHash,p_new_secret_hash:newSecretHash});if(error)throw error;return data;}

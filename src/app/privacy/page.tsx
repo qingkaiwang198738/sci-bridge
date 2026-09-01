@@ -1,0 +1,1 @@
+export default function Privacy(){return <main className="container"><header className="hero"><h1>隐私说明</h1></header><article className="panel section"><p>平台原则上不要求注册账号，也不公开展示真实身份。为提供发布、沟通、防滥用、安全和依法履行义务所需功能，平台可能处理凭证哈希、必要的技术日志、可选联系邮箱以及举报记录。</p><p>公开需求、响应和聊天具有明确生命周期；过期内容按系统策略清理。安全、反滥用和依法必须保留的信息可能按照适用法律及最小必要原则保留更长时间。</p><p>不要在公开内容或聊天中提交密码、身份证件、患者可识别信息或其他不必要的敏感信息。</p></article></main>}

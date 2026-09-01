@@ -1,0 +1,5 @@
+"use client";
+import Script from "next/script";
+import { useEffect } from "react";
+declare global { interface Window { turnstile?: { render:(el:HTMLElement,opts:{sitekey:string,callback:(token:string)=>void,expiredCallback?:()=>void})=>void } } }
+export function Turnstile({enabled,siteKey}:{enabled:boolean;siteKey?:string}){useEffect(()=>{if(!enabled||!siteKey)return;const el=document.getElementById("turnstile-widget");if(el&&window.turnstile&&!el.dataset.rendered){window.turnstile.render(el,{sitekey:siteKey,callback:t=>{const input=document.getElementById("turnstile-token") as HTMLInputElement|null;if(input)input.value=t},expiredCallback:()=>{const input=document.getElementById("turnstile-token") as HTMLInputElement|null;if(input)input.value=""}});el.dataset.rendered="1"}},[enabled,siteKey]);if(!enabled||!siteKey)return null;return <><Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive"/><div id="turnstile-widget"/><input id="turnstile-token" name="turnstileToken" type="hidden"/></>}
